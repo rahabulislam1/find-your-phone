@@ -142,7 +142,20 @@ const displayPhoneDetail = phone => {
     `;
     }
 
-
+    else {
+        div.innerHTML = `
+    <img src="${phone.image}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h2 class="card-title">Model: ${phone.name}</h2>
+        <h2 class="card-title">Brand: ${phone.brand}</h2>
+        <h5 class="card-title">Release Date: ${phone.releaseDate}</h5>
+        <h5 class="card-title">Chipset: ${phone.mainFeatures.chipSet}</h5>
+        <h5 class="card-title">Display Size: ${phone.mainFeatures.displaySize}</h5>
+        <h5 class="card-title">Memory: ${phone.mainFeatures.memory}</h5>
+        <h5 class="card-title">Sensors: ${phone.mainFeatures.sensors}</h5>
+    </div>
+    `;
+    }
 
     phoneDetails.appendChild(div);
 
