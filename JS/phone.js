@@ -104,3 +104,46 @@ const loadPhoneDetail = phoneId => {
     // .then(data => console.log(data));
 }
 
+const displayPhoneDetail = phone => {
+    // console.log(phone);
+    const phoneDetails = document.getElementById('phone-details');
+
+    phoneDetails.textContent = '';
+
+
+    const div = document.createElement('div');
+    if (phone.releaseDate == '') {
+        phone.releaseDate = 'No data found';
+    }
+    else {
+        phone.releaseDate = phone.releaseDate;
+    }
+    div.classList.add('card');
+
+    if (typeof phone.details == 'object') {
+        div.innerHTML = `
+    <img src="${phone.image}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h2 class="card-title">Model: ${phone.name}</h2>
+        <h2 class="card-title">Brand: ${phone.brand}</h2>
+        <h5 class="card-title">Release Date: ${phone.releaseDate}</h5>
+        <h5 class="card-title">Chipset: ${phone.mainFeatures.chipSet}</h5>
+        <h5 class="card-title">Display Size: ${phone.mainFeatures.displaySize}</h5>
+        <h5 class="card-title">Memory: ${phone.mainFeatures.memory}</h5>
+        <h5 class="card-title">Sensors: ${phone.mainFeatures.sensors}</h5>
+        <h3 class="card-title text-center">Other: </h3>
+        <h5 class="card-title">${phone.others.GPS}</h5>
+        <h5 class="card-title">${phone.others.NFC}</h5>
+        <h5 class="card-title">${phone.others.Radio}</h5>
+        <h5 class="card-title">${phone.others.USB}</h5>
+        <h5 class="card-title">${phone.others.Bluetooth}</h5>
+        <h5 class="card-title">${phone.others.WLAN}</h5>
+    </div>
+    `;
+    }
+
+
+
+    phoneDetails.appendChild(div);
+
+}
